@@ -33,3 +33,31 @@ conda env create -f environment.yml
 
 # Activate the environment
 conda activate benthic_env
+
+## 🚀 How to Launch the Tool
+
+Every time you want to use the tool:
+
+1.  Open your Terminal or Anaconda Prompt.
+2.  Navigate to your project folder using `cd`.
+3.  Run the following commands:
+
+```bash
+conda activate benthic_env
+streamlit run app.py
+
+## 🖥️ Using the Dashboard
+
+1.  **Select Folders:** Paste the path to your Input folder (raw data) and Output folder (where results go).
+2.  **Set Confidence:** Adjust the slider to determine how strict the AI should be.
+    * **Low (0.25):** More likely to catch everything, but may have some false detections.
+    * **High (0.50):** Very strict; only logs detections it is "sure" about.
+3.  **Optimize Video:** For faster video processing, increase the Frame Stride (e.g., to 5 or 10) to skip identical frames while the ROV is moving slowly.
+4.  **Click Start:** Watch the live feed. Once complete, your data will be waiting in the output folder.
+
+## 📊 Understanding Your Output
+
+Inside your timestamped results folder (e.g., `Run_2026-02-05_14-30`), you will find:
+
+* **detection_report.csv:** A master spreadsheet for your statistical analysis.
+* **Annotated Media:** Copies of your input files with boxes and labels drawn around the detected megafauna.
