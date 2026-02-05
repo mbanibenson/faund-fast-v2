@@ -1,0 +1,19 @@
+name: benthic_env
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8 # Only needed if they have an NVIDIA GPU; otherwise works on CPU
+  - pip
+  - pip:
+      - ultralytics
+      - streamlit
+      - pandas
+      - opencv-python
+      - pillow
