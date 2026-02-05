@@ -27,14 +27,18 @@ Clone the repository or download the ZIP and extract it to your preferred locati
 ### 3. Setup the Environment
 Open your terminal (Mac/Linux) or Anaconda Prompt (Windows), navigate to the folder, and run the following commands:
 
-```bash
-# Create the specialized environment
+
+## Create the specialized environment
+```
 conda env create -f environment.yml
+```
 
-# Activate the environment
+## Activate the environment
+```
 conda activate benthic_env
+```
 
-## 🚀 How to Launch the Tool
+## How to Launch the Tool
 
 Every time you want to use the tool:
 
@@ -42,11 +46,14 @@ Every time you want to use the tool:
 2.  Navigate to your project folder using `cd`.
 3.  Run the following commands:
 
-```bash
+```
 conda activate benthic_env
+```
+```
 streamlit run app.py
+```
 
-## 🖥️ Using the Dashboard
+## Using the Dashboard
 
 1.  **Select Folders:** Paste the path to your Input folder (raw data) and Output folder (where results go).
 2.  **Set Confidence:** Adjust the slider to determine how strict the AI should be.
@@ -55,7 +62,7 @@ streamlit run app.py
 3.  **Optimize Video:** For faster video processing, increase the Frame Stride (e.g., to 5 or 10) to skip identical frames while the ROV is moving slowly.
 4.  **Click Start:** Watch the live feed. Once complete, your data will be waiting in the output folder.
 
-## 📊 Understanding Your Output
+## Understanding Your Output
 
 Inside your timestamped results folder (e.g., `Run_2026-02-05_14-30`), you will find:
 
