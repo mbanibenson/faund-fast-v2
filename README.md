@@ -1,8 +1,8 @@
 # Benthic Megafauna AI Detector
 
-A specialized UI for marine scientists to detect, count, and catalog seafloor megafauna from image surveys and ROV video footage.
+An AI platform designed for marine scientists to detect, count, and catalog benthic megafauna from seafloor image surveys and ROV video footage.
 
-This application provides a "point-and-click" dashboard for your trained YOLOv8 models. It is designed for ecological research, allowing you to process large datasets without writing code, while providing real-time abundance statistics and standardized data exports.
+This application provides an intuitive dashboard interface to make predictions based on your fine-tuned YOLOv8 models. It is designed for ecological research, allowing you to process large visual datasets without writing code, while providing real-time abundance statistics and standardized data exports.
 
 ## Features
 
@@ -22,18 +22,22 @@ We recommend using Miniconda to manage the software. This keeps the AI libraries
 If you don't have it, download and install the version for your OS from the [Miniconda website](https://docs.conda.io/en/latest/miniconda.html).
 
 ### 2. Download this Project
-Clone the repository or download the ZIP and extract it to your preferred location (e.g., `Desktop/Benthic_AI`).
+Clone the repository (or download the ZIP and extract it) to your preferred location (e.g., `Desktop/Benthic_AI`).
+
+```
+git clone https://github.com/mbanibenson/faund-fast-v2.git
+```
 
 ### 3. Setup the Environment
-Open your terminal (Mac/Linux) or Anaconda Prompt (Windows), navigate to the folder, and run the following commands:
+Open your terminal, navigate to the folder, and run the following commands:
 
 
-## Create the specialized environment
+#### Create the specialized environment
 ```
 conda env create -f environment.yml
 ```
 
-## Activate the environment
+#### Activate the environment
 ```
 conda activate benthic_env
 ```
@@ -42,7 +46,7 @@ conda activate benthic_env
 
 Every time you want to use the tool:
 
-1.  Open your Terminal or Anaconda Prompt.
+1.  Open your Terminal.
 2.  Navigate to your project folder using `cd`.
 3.  Run the following commands:
 
