@@ -3,6 +3,31 @@ from ultralytics import YOLO
 from pathlib import Path
 import pandas as pd
 from datetime import datetime
+import gdown
+
+# 1. Configuration
+FILE_ID = '1oS664ux4k96304bTiCaDVeM90msCa2Ht'
+# Define the path using Path
+MODEL_PATH = Path("models") / "best.pt"
+
+@st.cache_resource
+def load_yolo_model(file_id, save_path: Path):
+    """
+    Downloads the model from Google Drive if it doesn't exist 
+    locally, then loads it into memory using pathlib.
+    """
+    # Create the directory if it doesn't exist
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if not save_path.exists():
+        with st.spinner("Downloading model..."):
+            url = f'https://drive.google.com/uc?id={file_id}'
+            # gdown accepts Path objects or strings
+            gdown.download(url, str(save_path), quiet=False)
+    
+    # Load the Ultralytics model
+    model = YOLO(save_path)
+    return model
 
 # --- 1. PAGE CONFIG ---
 st.set_page_config(page_title="Benthic AI Dashboard", layout="wide", page_icon="🌊")
@@ -101,13 +126,13 @@ def process_media():
 
     # --- Load Model ---
     try:
-        model = YOLO(str(model_path))
+        model = load_yolo_model(FILE_ID, MODEL_PATH)
     except Exception as e:
         status_text.error(f"❌ Model Load Error: {e}")
         return
 
     # --- Find Files ---
-    valid_exts = {'.jpg', '.png', '.jpeg', '.bmp', '.tif', '.mp4', '.avi', '.mov', '.mkv'}
+    valid_exts = {'.jpg', '.JPG', '.JPEG', '.png', '.jpeg', '.bmp', '.tif', '.mp4', '.avi', '.mov', '.mkv'}
     files = [f for f in input_path.iterdir() if f.suffix.lower() in valid_exts]
     
     if not files:
